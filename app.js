@@ -6,11 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const h = require('./helper');
 const env = require('dotenv');
-
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const storeRouter = require('./routes/storeRoute');
+const routing  = require ('./router')
 
 env.config();
 mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
@@ -34,9 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Routing
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/store', storeRouter);
+app.use('/', routing);
 
 // import Model module
 require('./models/Store');
