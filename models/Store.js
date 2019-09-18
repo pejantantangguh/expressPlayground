@@ -23,8 +23,13 @@ const storeSchema = new mongoose.Schema({
 // Create Store Schema save
 storeSchema.pre('save', function (next) {
     // Enabling slugs to follow the name
-    this.slug = slug(this.name);
+    if (!this.isModified('name')) {
+        next() // skip it
+        return; // stop function from running
+    } this.slug = slug(this.name);
     next();
+
+    // TODO Make name cannot be the same as existing slugs
 });
 
 module.export = mongoose.model('Store', storeSchema);
