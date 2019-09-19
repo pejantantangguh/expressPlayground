@@ -6,7 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const h = require('./helper');
 const env = require('dotenv');
-const routing  = require ('./router')
+const routing = require('./router')
 
 env.config();
 mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
@@ -23,8 +23,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+// take raw request and turns into usable properties on req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
