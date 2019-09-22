@@ -1,7 +1,7 @@
 const Store = require('../models/Store');
 
 exports.storeList = (req, res) => {
-  res.render('./store/storelist');
+  res.render('./storelist');
 }
 
 exports.storeDetails = (req, res) => {
@@ -10,7 +10,7 @@ exports.storeDetails = (req, res) => {
 
 // Add store and edit store will be exactly same way.
 exports.addStore = (req, res) => {
-  res.render('./store/addstore', { title: 'Add / Edit Store ' });
+  res.render('./addstore', { title: 'Add / Edit Store ' });
 }
 
 

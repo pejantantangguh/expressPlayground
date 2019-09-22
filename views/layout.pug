@@ -10,38 +10,6 @@ html
   body
     block header
     header.header
-      // Top Bar
-      .top-bar
-        .container-fluid
-          .row.d-flex.align-items-center
-            .col-sm-7.d-none.d-sm-block
-              ul.list-inline.mb-0
-                li.list-inline-item.pr-3.mr-0
-                  svg.svg-icon.mr-2
-                    use(xlink:href='#calls-1')  
-                  | 020-800-456-747
-                li.list-inline-item.px-3.border-left.d-none.d-lg-inline-block
-                  | Free shipping on orders over $300
-            .col-sm-5.d-flex.justify-content-end
-              // Language Dropdown
-              .dropdown.border-right.px-3
-                a#langsDropdown.dropdown-toggle.topbar-link(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  img.topbar-flag(src='img/united-kingdom.svg', alt='english')
-                  | English
-                .dropdown-menu.dropdown-menu-right(aria-labelledby='langsDropdown')
-                  a.dropdown-item.text-sm(href='#')
-                    img.topbar-flag(src='img/germany.svg', alt='german')
-                    | German
-                  a.dropdown-item.text-sm(href='#')
-                    img.topbar-flag(src='img/france.svg', alt='french')
-                    | French
-              // Currency Dropdown
-              .dropdown.pl-3.ml-0
-                a#currencyDropdown.dropdown-toggle.topbar-link(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') USD
-                .dropdown-menu.dropdown-menu-right(aria-labelledby='currencyDropdown')
-                  a.dropdown-item.text-sm(href='#') EUR
-                  a.dropdown-item.text-sm(href='#')  GBP
-      // Top Bar End
       // Navbar
       nav.navbar.navbar-expand-lg.bg-transparent.navbar-sticky.navbar-airy.navbar-light.bg-hover-white.bg-fixed-white.navbar-hover-light.navbar-fixed-light
         .container-fluid
@@ -56,7 +24,7 @@ html
           #navbarCollapse.collapse.navbar-collapse
             ul.navbar-nav.mx-auto
               li.nav-item.dropdown
-                a#homeDropdownMenuLink.nav-link.active(href='index.html', data-target='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                a#homeDropdownMenuLink.nav-link.active(href='/', data-target='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Home
                   i.fa.fa-angle-down
                 .dropdown-menu(aria-labelledby='homeDropdownMenuLink')
@@ -73,7 +41,7 @@ html
                     | broken grid 
                     span.badge.badge-info.ml-1 New
               li.nav-item
-                a.nav-link(href='category.html') Shop
+                a.nav-link(href='/store') Storelist
               // Megamenu
               li.nav-item.dropdown.position-static
                 a.nav-link(href='#', data-toggle='dropdown')
@@ -447,31 +415,10 @@ html
 
 
     block content
+    
 
     block footer
     footer.main-footer
-      // Services block
-      .bg-gray-100.text-dark-700.py-6
-        .container
-          .row
-            .col-lg-4.service-column
-              svg.svg-icon.service-icon
-                use(xlink:href='#delivery-time-1')  
-              .service-text
-                h6.text-uppercase Free shipping & return
-                p.text-muted.font-weight-light.text-sm.mb-0 Free Shipping over $300
-            .col-lg-4.service-column
-              svg.svg-icon.service-icon
-                use(xlink:href='#money-1')  
-              .service-text
-                h6.text-uppercase Money back guarantee
-                p.text-muted.font-weight-light.text-sm.mb-0 30 Days Money Back Guarantee
-            .col-lg-4.service-column
-              svg.svg-icon.service-icon
-                use(xlink:href='#customer-support-1')  
-              .service-text
-                h6.text-uppercase 020-800-456-747
-                p.text-muted.font-weight-light.text-sm.mb-0 24/7 Available Support
       // Main block - menus, subscribe form
       .py-6.bg-gray-300.text-muted
         .container
@@ -538,15 +485,9 @@ html
           .row.align-items-center
             .col-md-6.text-center.text-md-left
               p.mb-md-0 © 2018 Your company. All rights reserved.
-            .col-md-6
-              ul.list-inline.mb-0.mt-2.mt-md-0.text-center.text-md-right
-                li.list-inline-item
-                  img.w-2rem(src='img/visa.svg', alt='...')
-                li.list-inline-item
-                  img.w-2rem(src='img/mastercard.svg', alt='...')
-                li.list-inline-item
-                  img.w-2rem(src='img/paypal.svg', alt='...')
-                li.list-inline-item
-                  img.w-2rem(src='img/western-union.svg', alt='...')
     // /Footer end
+
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/bootstrap.bundle.min.js')
+    script(src='/javascripts/theme.js')
 

@@ -1,5 +1,16 @@
 mixin storeForm(store ={})  
     form(action="/add" method="POST" enctype = "multipart/form-data")
-        label(for="name") name
-        input(type="text" name="name")
-p it works!
+        .form-group.col-md-12
+            label(for="name" class="form-label") Full Name
+            input(type="text" name="name" class="form-control" placeholder="John Doe")
+        .form-group.col-md-12
+            label(for="description" class="form-label") Description
+            textarea(name="description" class="form-control")
+        - const choices = ['wifi', 'Open Late','Family Friendly', 'Vegetarian', 'Licensed']
+        ul.list-inline.mb-0
+            each choice in choices
+                li.list-inline-item
+                    input(type="checkbox" id=choice value=choice name="tags")
+                    label(for=choice).btn.btn-sm.btn-outline-secondary.detail-option-btn-label #{choice}
+        input.btn.btn-dark.btn-lg.mb-1(type="submit" valye="save ->")
+

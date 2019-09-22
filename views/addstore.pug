@@ -1,6 +1,8 @@
-include ../mixins/_storeform
+extends layout
+include ./mixins/_storeform
+block content
+    .container
+        h1 #{title}
 
-h1 #{title}
- 
-+storeForm()
+        +storeForm()
 
