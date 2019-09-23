@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const slugs = require('slugs');
+const slug = require('slugs');
 mongoose.Promise = global.Promise;
 
 const storeSchema = new mongoose.Schema({
@@ -8,7 +8,7 @@ const storeSchema = new mongoose.Schema({
         trim: true,
         required: 'Please enter store name'
     },
-    slugs: String,
+    slug: String,
     //desc an object
     description: {
         type: String,
