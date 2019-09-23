@@ -4,9 +4,7 @@ const Store = mongoose.model('Store');
 exports.storeList = async (req, res) => {
   //1.  Query database for list all of the stores
   const stores = await Store.find();
-  console.log(stores);
-
-  // Take stores database and put it to template
+  //2. Take stores database and put it to template
   res.render('./storelist', { stores });
 }
 

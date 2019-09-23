@@ -1,13 +1,20 @@
 mixin storeCard(store ={})
-     .products-grid.col-xl-9.col-lg-8.order-lg-2   
-            .row
+     .products-grid.col-xl-12.col-lg-12
+        header.product-grid-header
+            .mr-3.mb-3 Showing #{store.length} out of #{store.length} stores
+            .mr-3.mb-3 
+                span.mr-2 Show
+                a(class="product-grid-header-show active") 12
+                a(class="product-grid-header-show") 24
+                a(class="product-grid-header-show") all
+        .row
                 each store in stores
                    .col-xl-4.col-sm-6
                     a(href=`store/${store.slug}`)
                         .product
                             .product-image
-                                img(src=`/uploads/${store.photo || 'https://d19m59y37dris4.cloudfront.net/sell/1-3/img/product/serrah-galos-494312-unsplash.jpg'}`
+                                img(src='https://d19m59y37dris4.cloudfront.net/sell/1-3/img/product/serrah-galos-494312-unsplash.jpg'
                                 class="img-fluid")
                         .py-2    
                             h3.h6.text-uppercase.mb-1 #{store.name} 
-                            span #{store.description}
+                            span #{store.description.split(' ').slice(0,30).join(' ')}
