@@ -26,56 +26,24 @@ html
               li.nav-item.dropdown
                 a#homeDropdownMenuLink.nav-link.active(href='/', data-target='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Home
-                  i.fa.fa-angle-down
-                .dropdown-menu(aria-labelledby='homeDropdownMenuLink')
-                  a.dropdown-item(href='index.html') Fullscreen home + Lookbook
-                  a.dropdown-item(href='index2.html') Split-screen home
-                  a.dropdown-item(href='index3.html')
-                    | Classic
-                    | home
-                  a.dropdown-item(href='index4.html')
-                    | Parallax sections 
-                    span.badge.badge-info.ml-1 New
-                  a.dropdown-item(href='index5.html')
-                    | Slider +
-                    | broken grid 
-                    span.badge.badge-info.ml-1 New
               li.nav-item
                 a.nav-link(href='/store') Storelist
               // Megamenu
               li.nav-item.dropdown.position-static
                 a.nav-link(href='#', data-toggle='dropdown')
-                  | Template
+                  | Categories
                   i.fa.fa-angle-down
                 .dropdown-menu.megamenu.py-lg-0
                   .row
-                    .col-lg-9
+                    .col-lg-12
                       .row.p-3.pr-lg-0.pl-lg-5.pt-lg-5
                         .col-lg-3
                           // Megamenu list
-                          h6.text-uppercase Homepage
+                          h6.text-uppercase Home Products
                           ul.megamenu-list.list-unstyled
                             li.megamenu-list-item
-                              a.megamenu-list-link(href='index.html')
-                                | Fullscreen home
-                                | + Lookbook
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='index2.html')
-                                | Split-screen
-                                | home
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='index3.html')
-                                | Classic home
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='index4.html')
-                                | Parallax
-                                | sections 
-                                span.badge.badge-warning.ml-1 New
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='index5.html')
-                                | Slider +
-                                | Broken grid 
-                                span.badge.badge-warning.ml-1 New
+                              a.megamenu-list-link(href='/addproduct')
+                                | Add Products
                           // Megamenu list
                           h6.text-uppercase Shop
                           ul.megamenu-list.list-unstyled
@@ -83,27 +51,6 @@ html
                               a.megamenu-list-link(href='category.html')
                                 | Category -
                                 | left sidebar
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='category-right.html') Category - right sidebar 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='category-no-sidebar.html') Category - no sidebar 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='category-full.html') Category - full width 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='category-masonry.html') Category - masonry items 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='category-banner.html') Category - w/ banner 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='detail.html')
-                                | Product detail
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='detail-2.html')
-                                | Product
-                                | detail - v.2
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='detail-3.html')
-                                | Product
-                                | detail - v.3 
                                 span.badge.badge-warning.ml-1 New
                         .col-lg-3
                           // Megamenu list
@@ -112,31 +59,6 @@ html
                             li.megamenu-list-item
                               a.megamenu-list-link(href='cart.html')
                                 | Shopping cart
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='cart-2.html')
-                                | Shopping cart
-                                | - v. 2 
-                                span.badge.badge-warning.ml-1 New
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='checkout1.html')
-                                | Checkout 1
-                                | - Address
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='checkout2.html')
-                                | Checkout 2
-                                | - Delivery
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='checkout3.html')
-                                | Checkout 3
-                                | - Payment
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='checkout4.html')
-                                | Checkout 4
-                                | - Review
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='checkout5.html')
-                                | Checkout 5
-                                | - Confirmation
                           // Megamenu list
                           h6.text-uppercase Blog
                           ul.megamenu-list.list-unstyled
@@ -152,23 +74,6 @@ html
                               a.megamenu-list-link(href='about.html')
                                 | About us 
                                 span.badge.badge-warning.ml-1 New
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='about-2.html')
-                                | About us v.2
-                                span.badge.badge-warning.ml-1 New
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='contact.html') Contact 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='contact-2.html')
-                                | Contact v.2
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='text.html') Text page 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='faq.html') F.A.Q.s 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='coming-soon.html')
-                                | Coming
-                                | soon
                           // Megamenu list
                           h6.text-uppercase Customer
                           ul.megamenu-list.list-unstyled
@@ -176,42 +81,17 @@ html
                               a.megamenu-list-link(href='customer-login.html') Login/sign up 
                             li.megamenu-list-item
                               a.megamenu-list-link(href='customer-orders.html') Orders 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='customer-order.html')
-                                | Order
-                                | detail
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='customer-addresses.html') Addresses 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='customer-account.html') Profile 
                         .col-lg-3
                           // Megamenu list
                           h6.text-uppercase Documentation
                           ul.megamenu-list.list-unstyled
                             li.megamenu-list-item
                               a.megamenu-list-link(href='docs/docs-introduction.html') Introduction 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='docs/docs-directory-structure.html') Directory structure 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='docs/docs-gulp.html')
-                                | Gulp
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='docs/docs-customizing-css.html') Customizing CSS 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='docs/docs-credits.html') Credits 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='docs/docs-changelog.html') Changelog 
                           // Megamenu list
                           h6.text-uppercase Components
                           ul.megamenu-list.list-unstyled
                             li.megamenu-list-item
                               a.megamenu-list-link(href='docs/components-bootstrap.html') Bootstrap 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='docs/components-sell.html') Theme 
-                            li.megamenu-list-item
-                              a.megamenu-list-link(href='component-variants/header.html')
-                                | Header variants 
-                                span.badge.badge-warning.ml-1 New
                       .row.megamenu-services.d-none.d-lg-flex
                         .col-xl-3.col-lg-6.d-flex
                           .megamenu-services-item
@@ -302,24 +182,7 @@ html
               li.nav-item.dropdown
                 a#docsDropdownMenuLink.nav-link(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | Docs
-                  i.fa.fa-angle-down
-                .dropdown-menu.dropdown-menu-right(aria-labelledby='docsDropdownMenuLink')
-                  h6.dropdown-header.font-weight-normal Documentation
-                  a.dropdown-item(href='docs/docs-introduction.html') Introduction 
-                  a.dropdown-item(href='docs/docs-directory-structure.html') Directory structure 
-                  a.dropdown-item(href='docs/docs-gulp.html')
-                    | Gulp
-                  a.dropdown-item(href='docs/docs-customizing-css.html') Customizing CSS 
-                  a.dropdown-item(href='docs/docs-credits.html') Credits 
-                  a.dropdown-item(href='docs/docs-changelog.html') Changelog 
-                  .dropdown-divider
-                  h6.dropdown-header.font-weight-normal Components
-                  a.dropdown-item(href='docs/components-bootstrap.html') Bootstrap 
-                  a.dropdown-item(href='docs/components-sell.html')
-                    | Theme
-                  a.dropdown-item(href='component-variants/header.html')
-                    | Header variants 
-                    span.badge.badge-warning.ml-1 New
+                  span.badge.badge-warning.ml-1 New
             .d-flex.align-items-center.justify-content-between.justify-content-lg-end.mt-1.mb-2.my-lg-0
               // Search Button
               .nav-item.navbar-icon-link(data-toggle='search')
