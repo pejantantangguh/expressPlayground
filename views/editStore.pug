@@ -2,7 +2,7 @@ extends layout
 include ./mixins/_storeform
 block content
     .container
-        h1 #{title}
-        pre #{store}
-        +storeForm(store)
+      pre #{store}
+      h1 #{store.name}
+      +storeForm(store)
 

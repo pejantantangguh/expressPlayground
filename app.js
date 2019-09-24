@@ -10,7 +10,7 @@ const env = require('dotenv');
 
 
 env.config();
-mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 
 mongoose.connection.on('error', (err) => {

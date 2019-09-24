@@ -14,7 +14,7 @@ exports.storeDetails = (req, res) => {
 
 // Add store and edit store will be exactly same way.
 exports.addStore = (req, res) => {
-  res.render('./addstore', { title: 'Add / Edit Store ' });
+  res.render('addstore', { title: 'Add / Edit Store ' });
 }
 
 exports.createStore = async (req, res) => {
@@ -22,6 +22,16 @@ exports.createStore = async (req, res) => {
   const store = new Store(req.body);
   await store.save();
   res.redirect(`/store/${store.slug}`);
+}
+
+exports.editStore = async (req, res) => {
+  // Find the store given id
+  const store = await Store.findOne({ _id: req.params.id });
+  // Confirm if they are owner
+  // TODO
+
+  // Render out edit form so user can update stores
+  res.render('addstore', { title: `Edit ${store.name}`, store })
 }
 
 

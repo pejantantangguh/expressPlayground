@@ -2,15 +2,16 @@ mixin storeForm(store ={})
     form(action="/store/add" method="POST")
         .form-group.col-md-12
             label(for="name" class="form-label") Full Name
-            input(type="text" name="name" class="form-control" placeholder="John Doe")
+            input(type="text" name="name" class="form-control" value=store.name)
         .form-group.col-md-12
             label(for="description" class="form-label") Description
-            textarea(name="description" class="form-control")
+            textarea(name="description" class="form-control")= store.description
         - const choices = ['wifi', 'Open Late','Family Friendly', 'Vegetarian', 'Licensed']
+        - const tags = store.tags || []
         ul.list-inline.mb-0
             each choice in choices
                 li.list-inline-item
-                    input(type="checkbox" id=choice value=choice name="tags")
+                    input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
                     label(for=choice).btn.btn-sm.btn-outline-secondary.detail-option-btn-label #{choice}
-        input.btn.btn-dark.btn-lg.mb-1(type="submit" valye="save ->")
+        input.btn.btn-dark.btn-lg.mb-1(type="submit" value="save ->")
 

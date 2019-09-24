@@ -13,6 +13,8 @@ mixin storeCard(store ={})
                     a(href=`store/${store.slug}`)
                         .product
                             .product-image
+                                a(href=`/store/${store.id}/edit`)
+                                    .ribbon.ribbon-info Edit
                                 img(src='https://d19m59y37dris4.cloudfront.net/sell/1-3/img/product/serrah-galos-494312-unsplash.jpg'
                                 class="img-fluid")
                         .py-2    
