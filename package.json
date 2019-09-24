@@ -16,6 +16,7 @@
     "http-errors": "~1.6.3",
     "moment": "^2.24.0",
     "mongoose": "^5.7.1",
+    "mongoose-validator": "^2.1.0",
     "morgan": "~1.9.1",
     "pug": "^2.0.4",
     "slugs": "^0.1.3"

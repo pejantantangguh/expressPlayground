@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // import Model module
 require('./models/Store');
+require('./models/Product');
 
 
 // Routing
