@@ -1,0 +1,11 @@
+mixin productForm(product ={})  
+    form(action="/product/add" method="POST")
+        .form-group.col-md-12
+            label(for="name" class="form-label") Product Name
+            input(type="text" name="productName" class="form-control" required)
+        .form-group.col-md-12
+            label(for="price" class="form-label") Price
+            input(name="price" class="form-control" type="number" required)
+        
+        input.btn.btn-dark.btn-lg.mb-1(type="submit" value="save ->")
+

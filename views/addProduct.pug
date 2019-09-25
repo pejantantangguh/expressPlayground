@@ -1,4 +1,6 @@
 extends layout
+include ./mixins/_productForm
 block content
     .container
-        h1 Add Product Page
+        h1 Add Product
+        +productForm()
