@@ -219,11 +219,10 @@ $(function () {
     //  Button-style form labels used in detail.html
     // ------------------------------------------------------ //
 
-    $('.detail-option-btn-label').on('click', function () {
+    $('.detail-option-btn-label').unbind('click').on('click', function () {
         var button = $(this);
-
-        button.parents('.detail-option').find('.detail-option-btn-label').removeClass('active');
-
+        button.parents('.form-label').find('.detail-option-btn-label').removeClass('active');
+        console.log("to FIx Button firing twice!");
         button.toggleClass('active');
     });
 
