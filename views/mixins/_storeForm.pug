@@ -1,11 +1,16 @@
 mixin storeForm(store ={})  
-    form(action="/store/add" method="POST")
+    form(action="/store/add" method="POST" enctype="multipart/form-data")
         .form-group.col-md-12
             label(for="name" class="form-label") Full Name
             input(type="text" name="name" class="form-control" value=store.name)
         .form-group.col-md-12
             label(for="description" class="form-label") Description
             textarea(name="description" class="form-control")= store.description
+        .form-group.col-md-12
+            label(for="photo") Photo
+            input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpg, image/jpeg")
+            if store.photo
+                img(src=`/uploads/${store.photo}` alt=store.name width=200)
         - const choices = ['wifi', 'Open Late','Family Friendly', 'Vegetarian', 'Licensed']
         - const tags = store.tags || []
         ul.list-inline.mb-0
@@ -14,4 +19,12 @@ mixin storeForm(store ={})
                     input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
                     label(for=choice).btn.btn-sm.btn-outline-secondary.detail-option-btn-label #{choice}
         input.btn.btn-dark.btn-lg.mb-1(type="submit" value="save ->")
+
+
+        //- Customised order form to be able to accept file
+        //- Middleware in between to upload and resize the files
+        //- customise to multipart/form-data
+        //- install multer
+        //- multeroptions
+
 
