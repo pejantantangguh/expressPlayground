@@ -7,7 +7,7 @@ exports.addProduct = (req, res) => {
 }
 
 exports.createProduct = async (req, res) => {
-    const product = new Product(req.body)
-    await product.save();
-    res.redirect('/');
+    // const product = new Product(req.body)
+    // await product.save();
+    res.json(req.body);
 }

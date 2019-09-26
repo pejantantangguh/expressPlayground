@@ -12,30 +12,32 @@ mixin productForm(product ={})
             ul.list-inline.mb-0
                 each brand in brands
                     li.list-inline-item
-                    label(for=brand class="btn btn-sm btn-outline-secondary detail-option-btn-label") #{brand}
-                        input(type="radio" id=brand value=brand class="input-invisible")
-                   
+                        label(for=brand class="btn btn-sm btn-outline-secondary detail-option-btn-label") #{brand}
+                        input(type="radio" id=brand value=brand class="input-invisible" name="brand")
         .form-group.col-md-12
-            label(for="name" class="form-label") Product Name
-            input(type="text" name="productName" class="form-control" required)
+            label(for="Description" class="form-label") Description
+            textarea(type="text" name="description" class="form-control" required)
         .form-group.col-md-12
-            label(for="price" class="form-label") Price
-            input(name="price" class="form-control" type="number" required)
+            label(for="thumbnail" class="form-label") Thumbnail
+            input(name="thumbnail" class="form-control" type="text" required)
         .form-group.col-md-12
-            label(for="name" class="form-label") Product Name
-            input(type="text" name="productName" class="form-control" required)
+            label(for="name" class="form-label") Gallery
+            input(type="text" name="gallery" class="form-control" required)
         .form-group.col-md-12
-            label(for="price" class="form-label") Price
-            input(name="price" class="form-control" type="number" required)
+            label(for="color" class="form-label") Color
+            - const colors = ['red','orange','yellow','green','blue','indigo','violet']
+            ul.list-inline.mb-0
+                each color in colors
+                    li.list-inline-item
+                        input(type="checkbox" id=color value=color name="color" class="input-invisible")
+                        label(style=`background-color:${color}` class="btn-colour" for=color) 
         .form-group.col-md-12
             label(for="name" class="form-label") Category
             - const categories = ['Home Product','Electronic','Decoration','Furniture']
-        ul.list-inline.mb-0
-            each category in categories
-                li.list-inline-item
-                    input(type="checkbox" id=category value=category )
-                    label(for=category).btn.btn-sm.btn-outline-secondary.detail-option-btn-label #{category}
-       
-        
+            ul.list-inline.mb-0
+                each category in categories
+                    li.list-inline-item
+                        input(type="checkbox" id=category value=category name="category")
+                        label(for=category).btn.btn-sm.btn-outline-secondary.detail-option-btn-label #{category}    
         input.btn.btn-dark.btn-lg.mb-1(type="submit" value="save ->")
 
