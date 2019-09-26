@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Store = mongoose.model('Store');
 
+
+
 exports.storeList = async (req, res) => {
   //1.  Query database for list all of the stores
   const stores = await Store.find();

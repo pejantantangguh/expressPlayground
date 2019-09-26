@@ -1,0 +1,20 @@
+mixin productCard(products ={})
+     .products-grid.col-xl-12.col-lg-12
+        header.product-grid-header
+            .mr-3.mb-3 Showing #{products.length} out of #{products.length} products
+            .mr-3.mb-3 
+                span.mr-2 Show
+                a(class="product-grid-header-show active") 12
+                a(class="product-grid-header-show") 24
+                a(class="product-grid-header-show") all
+        .row
+                each product in products
+                   .col-xl-4.col-sm-6
+                    a(href=`product/${product.slug}`)
+                        .product
+                            .product-image
+                                a(href=`/product/${product.id}/edit`)
+                                    .ribbon.ribbon-info Edit
+                        .py-2    
+                            h3.h6.text-uppercase.mb-1 #{product.productName} 
+                            span #{product.description.split(' ').slice(0,30).join(' ')}

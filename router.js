@@ -10,6 +10,7 @@ router.get('/store/add', storeController.addStore);
 router.post('/store/add', catchErrors(storeController.createStore));
 router.get('/store/:id/edit', catchErrors(storeController.editStore));
 
+router.get('/product-list', catchErrors(productController.productList));
 router.get('/addproduct', productController.addProduct);
 router.post('/product/add', productController.createProduct);
 

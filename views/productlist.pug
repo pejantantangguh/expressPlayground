@@ -1,0 +1,8 @@
+extends layout
+include ./mixins/_productCard
+
+block content
+    .container
+        +productCard(products)
+
+        //- a(href="/store/add") Add store 
