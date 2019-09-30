@@ -14,6 +14,7 @@
     "express-validator": "^6.2.0",
     "flash": "^1.1.0",
     "http-errors": "~1.6.3",
+    "jimp": "^0.8.4",
     "moment": "^2.24.0",
     "mongoose": "^5.7.1",
     "mongoose-validator": "^2.1.0",

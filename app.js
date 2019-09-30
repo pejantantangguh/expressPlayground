@@ -61,4 +61,9 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+app.use(function (err, req, res, next) {
+  console.log('This is the invalid field ->', err.field)
+  next(err)
+})
+
 module.exports = app;

@@ -12,6 +12,6 @@ router.get('/store/:id/edit', catchErrors(storeController.editStore));
 
 router.get('/product-list', catchErrors(productController.productList));
 router.get('/addproduct', productController.addProduct);
-router.post('/product/add', productController.upload, productController.createProduct);
+router.post('/product/add', productController.upload, catchErrors(productController.resize, productController.createProduct));
 
 module.exports = router;
