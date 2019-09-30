@@ -19,10 +19,10 @@ mixin productForm(product ={})
             textarea(type="text" name="description" class="form-control" required)
         .form-group.col-md-12
             label(for="thumbnail" class="form-label") Thumbnail
-            input(name="thumbnail" class="form-control" type="text" required)
+            input(class="form-control" type="file" name="thumbnail" accept="image/gif, image/png, image/jpg, image/jpeg" required)
         .form-group.col-md-12
-            label(for="name" class="form-label") Gallery
-            input(type="text" name="gallery" class="form-control" required)
+            label(for="gallery" class="form-label") Gallery
+            input(name="gallery" class="form-control" type="file" accept="image/gif, image/png, image/jpg, image/jpeg" required)
         .form-group.col-md-12
             label(for="color" class="form-label") Color
             - const colors = ['red','orange','yellow','green','blue','indigo','violet']
