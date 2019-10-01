@@ -10,8 +10,16 @@ router.get('/store/add', storeController.addStore);
 router.post('/store/add', catchErrors(storeController.createStore));
 router.get('/store/:id/edit', catchErrors(storeController.editStore));
 
+// Product
 router.get('/product-list', catchErrors(productController.productList));
 router.get('/addproduct', productController.addProduct);
-router.post('/product/add', productController.upload, catchErrors(productController.resize, productController.createProduct));
+router.post('/product/add',
+    productController.upload,
+    catchErrors(productController.resize),
+    catchErrors(productController.createProduct)
+);
+router.get('/product/:slug', catchErrors(productController.productDetails));
+
+
 
 module.exports = router;

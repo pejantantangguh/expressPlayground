@@ -10,7 +10,7 @@ mixin productCard(products ={})
         .row
                 each product in products
                    .col-xl-4.col-sm-6
-                    a(href=`product/${product.slug}`)
+                    a(href=`product/${product.slug}`) Details
                         .product
                             .product-image
                                 a(href=`/product/${product.id}/edit`)

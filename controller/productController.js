@@ -23,17 +23,22 @@ exports.resize = async (req, res, next) => {
         next();
         return;
     }
-    const extension = req.file.mimetype.split('/'[1]);
+    const extension = req.file.mimetype.split('/')[1];
     req.body.thumbnail = `${uuid.v4()}.${extension}`;
 
     // resizing
     const photo = await jimp.read(req.file.buffer);
     await photo.resize(800, jimp.AUTO);
-    await photo.write(`./uploads/${req.body.thumbnail}.jpeg`);
-    res.redirect('/');
+    await photo.write(`./images/uploads/${req.body.thumbnail}`);
+    console.log('finish resize!');
+    next();
 }
 
-
+exports.createProduct = async (req, res) => {
+    const product = new Product(req.body)
+    await product.save();
+    res.redirect('/');
+}
 
 
 exports.productList = async (req, res) => {
@@ -45,8 +50,13 @@ exports.addProduct = (req, res) => {
     res.render('addProduct');
 }
 
-exports.createProduct = async (req, res) => {
-    const product = new Product(req.body)
-    await product.save();
-    res.redirect('/');
+
+exports.productDetails = async (req, res, next) => {
+    const product = await Product.findOne({ slug: req.params.slug });
+    if (!product) {
+        next();
+        return
+    }
+    // res.json(product);
+    res.render('productDetails', { product });
 }

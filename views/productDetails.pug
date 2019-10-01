@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    .container
+        h2 #{product.productName}
+        p #{product.price}
+        img(src=`../images/uploads/${product.thumbnail}`)
+        p Need to fix image
