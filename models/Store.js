@@ -15,21 +15,42 @@ const storeSchema = new mongoose.Schema({
         trim: true
     },
     // tags [String]
-    tags: [String]
-
-
+    tags: [String],
+    photo: [String]
 });
 
 // Create Store Schema save
-storeSchema.pre('save', function (next) {
+storeSchema.pre('save', async function (next) {
     // Enabling slugs to follow the name
     if (!this.isModified('name')) {
         next() // skip it
         return; // stop function from running
     } this.slug = slug(this.name);
+    // TODO Make name cannot be the same as existing slugs
+    const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
+    console.log(slugRegEx);
+
+    const storeswithSlug = await this.constructor.find({ slug: slugRegEx });
+
+    if (storeswithSlug.length) {
+        this.slug = `${this.slug}-${storeswithSlug.length + 1}`;
+    }
     next();
 
-    // TODO Make name cannot be the same as existing slugs
+
 });
+
+// Store Controller -> getTagsList
+storeSchema.statics.getTagsList = function () {
+    return this.aggregate([
+        { $unwind: '$tags' },
+        {
+            $group: {
+                _id: '$tags', count: { $sum: 1 }
+            }
+        },
+        { $sort: { count: -1 } }
+    ])
+}
 
 module.export = mongoose.model('Store', storeSchema);

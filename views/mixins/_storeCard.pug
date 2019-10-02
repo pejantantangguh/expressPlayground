@@ -10,12 +10,12 @@ mixin storeCard(store ={})
         .row
                 each store in stores
                    .col-xl-4.col-sm-6
-                    a(href=`store/${store.slug}`)
+                    a(href=`store/${store.slug}`) Details
                         .product
                             .product-image
                                 a(href=`/store/${store.id}/edit`)
                                     .ribbon.ribbon-info Edit
-                                img(src='https://d19m59y37dris4.cloudfront.net/sell/1-3/img/product/serrah-galos-494312-unsplash.jpg'
+                                img(src=`/uploads/${store.photo}`
                                 class="img-fluid")
                         .py-2    
                             h3.h6.text-uppercase.mb-1 #{store.name} 

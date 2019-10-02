@@ -1,0 +1,11 @@
+extends layout
+block content
+    .container
+        h1 #{store.name}
+        h6 #{store.description}
+        img(src=`/uploads/${store.photo}`)
+
+        if store.tags
+            each tag in store.tags
+                li #{tag}
+        

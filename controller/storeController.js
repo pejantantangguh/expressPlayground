@@ -27,10 +27,18 @@ exports.resize = async (req, res, next) => {
   // resize
   const photo = await jimp.read(req.file.buffer)
   await photo.resize(800, jimp.AUTO);
-  await photo.write(`./uploads/${req.body.photo}`);
+  await photo.write(`./public/uploads/${req.body.photo}`);
 
   // once we save, keep going
-  res.redirect('/');
+  next();
+}
+
+exports.createStore = async (req, res) => {
+  // Save req.body to database. Using asycn await
+  const store = new Store(req.body);
+  await store.save();
+  res.redirect(`/store`);
+  // res.json(req.body);
 }
 
 exports.storeList = async (req, res) => {
@@ -40,8 +48,10 @@ exports.storeList = async (req, res) => {
   res.render('./storelist', { stores });
 }
 
-exports.storeDetails = (req, res) => {
-  res.send('Details of the clicked store');
+exports.storeDetails = async (req, res) => {
+  const store = await Store.findOne(req.params)
+  res.render('storedetails', { store });
+  // res.json(store);
 }
 
 // Add store and edit store will be exactly same way.
@@ -49,12 +59,7 @@ exports.addStore = (req, res) => {
   res.render('addstore', { title: 'Add / Edit Store ' });
 }
 
-exports.createStore = async (req, res) => {
-  // Save req.body to database. Using asycn await
-  const store = new Store(req.body);
-  await store.save();
-  res.redirect(`/store/${store.slug}`);
-}
+
 
 exports.editStore = async (req, res) => {
   // Find the store given id
@@ -66,6 +71,12 @@ exports.editStore = async (req, res) => {
   res.render('addstore', { title: `Edit ${store.name}`, store })
 }
 
+
+exports.getStoresbyTags = async (req, res) => {
+  // getTagsList -> lives in Store.js
+  const tags = await Store.getTagsList();
+  res.render('tag', { tags, title: 'Tag Pages' });
+}
 
 exports.homePage = (req, res) => {
   res.render('index', { title: 'Express' })
