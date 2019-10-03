@@ -1,7 +1,23 @@
 extends layout
+include ./mixins/_storeCard
 block content
     .container
-        h1 #{title}
-        each tag in tags
-            a(href=`/tags/${tag._id}`)
-                 li  #{tag._id} #{tag.count}         
+        h1 #{tag}
+        each t in tags
+            a(href=`/tags/${t._id}` class=(t._id === tag ? 'active' : ''))
+                li.list-inline-item   
+                label(class="btn btn-sm btn-outline-secondary detail-option-btn-label") #{t._id} #{t.count}    
+        .row
+            each store in stores
+              .col-xl-4.col-sm-6
+                    a(href=`store/${store.slug}`) Details
+                        .product
+                            .product-image
+                                a(href=`/store/${store.id}/edit`)
+                                    .ribbon.ribbon-info Edit
+                                img(src=`/uploads/${store.photo}`
+                                class="img-fluid")
+                        .py-2    
+                            h3.h6.text-uppercase.mb-1 #{store.name} 
+                            span #{store.description.split(' ').slice(0,30).join(' ')}
+

@@ -74,8 +74,14 @@ exports.editStore = async (req, res) => {
 
 exports.getStoresbyTags = async (req, res) => {
   // getTagsList -> lives in Store.js
-  const tags = await Store.getTagsList();
-  res.render('tag', { tags, title: 'Tag Pages' });
+  const tag = req.params.tag;
+  const tagQuery = tag || { $exists: true };
+  const tagsPromise = Store.getTagsList();
+  const storesPromise = Store.find({ tags: tagQuery });
+  const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
+
+  res.render('tag', { tags, stores, title: 'Tag Pages' });
+  // res.json([tags, stores]);
 }
 
 exports.homePage = (req, res) => {
