@@ -6,7 +6,13 @@
 */
 
 exports.catchErrors = (fn) => {
-    return function (req, res, next) {
-        return fn(req, res, next).catch(next);
-    }
+  return function (req, res, next) {
+    return fn(req, res, next).catch(next);
+  }
 }
+
+/*
+  MongoDB Validation Error Handler
+  Detect if there are mongodb validation errors that we can nicely show via flash messages
+*/
+

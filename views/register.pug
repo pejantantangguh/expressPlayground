@@ -1,0 +1,19 @@
+extends Layout
+block content
+    .container
+        h1 #{title}
+        pre #{err}
+        form.form(action="/register" method="POST")
+            .form-group.col-md-12
+                label(for="Email" class="form-label") Email
+                input(type="email" name="email" class="form-control" id="email")
+            .form-group.col-md-12
+                label(for="name" class="form-label") Full Name
+                input(name="name" class="form-control" type="text" id="name")
+            .form-group.col-md-12
+                label(for="password" class="form-label") Password
+                input(name="password" class="form-control" type="password")
+            .form-group.col-md-12
+                label(for="confirm-password" class="form-label") Confirm Password
+                input(name="confirm-password" class="form-control" type="confirm-password")
+            input.btn.btn-dark.btn-lg.mb-1(type="submit" value="Register ->")

@@ -1,0 +1,11 @@
+mixin loginForm(user ={})  
+    form(action="/login" method="POST" enctype="multipart/form-data")
+        .form-group.col-md-12
+            label(for="name" class="form-label") User Name / eMail
+            input(type="text" name="userName" class="form-control" value=user.userName)
+        .form-group.col-md-12
+            label(for="password" class="form-label") Password
+            input(name="password" class="form-control" type="password" value=user.password)
+        input.btn.btn-dark.btn-lg.mb-1(type="submit" value="save ->")
+
+

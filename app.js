@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const expressValidator = require('express-validator');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const h = require('./helper');
@@ -29,13 +30,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(expressValidator());
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 // import Model module
 require('./models/Store');
-
+require('./models/User');
 
 // Routing
 const routing = require('./router')
