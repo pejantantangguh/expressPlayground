@@ -8,6 +8,26 @@ exports.userRegister = (req, res) => {
     res.render('register', { title: 'User Register Page' });
 }
 
+exports.testValidateRegister = (req, res) => {
+    req.sanitizeBody('name');
+    req.sanitizeBody('email').normalizeEmail({
+        remove_dots: false,
+        remove_extension: false,
+        gmail_remove_subaddress: false
+    });
+    req.checkBody('name', 'You must supply a name').notEmpty();
+    req.checkBody('email', 'Your email is not valid!').isEmail();
+    req.checkBody('password', 'Password cannot be blank').notEmpty();
+    req.checkBody('confirm-password', 'Confirmed password cannot be blank').notEmpty();
+
+    const errors = req.validationErrors();
+    console.log(errors);
+    // if (errors) {
+    //     console.log('Error!', errors.map(err => err.msg));
+    // }
+    res.json(req.body);
+}
+
 exports.validateRegister = (req, res, next) => {
     req.sanitizeBody('name');
     req.sanitizeBody('email').normalizeEmail({
@@ -22,11 +42,10 @@ exports.validateRegister = (req, res, next) => {
 
     const errors = req.validationErrors();
     if (errors) {
-        console.log('error', errors.map(err => err.msg))
-        res.render('register', { title: 'Register', body: req.body, errors });
-        return;
+        res.json({ title: "No errors", body: req.body });
+        next();
     } else {
-        res.render('register', { title: 'Register', body: req.body });
+        res.json({ title: "Yes error", body: req.body });
         next();
     }
 
@@ -35,8 +54,10 @@ exports.validateRegister = (req, res, next) => {
 
 exports.saveUser = async (req, res, next) => {
     const user = new User(req.body);
-    await user.save();
-    res.redirect('/');
+
+    res.json(user);
+    // await user.save();
+    // res.redirect('/');
 }
 
 

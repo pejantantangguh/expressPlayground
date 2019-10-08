@@ -2,10 +2,9 @@ extends Layout
 block content
     .container
         h1 #{title}
-        pre #{err}
-        form.form(action="/register" method="POST")
+        form.form(action="/register/add" method="POST")
             .form-group.col-md-12
-                label(for="Email" class="form-label") Email
+                label(for="Email" class="form-label") Email hehe
                 input(type="email" name="email" class="form-control" id="email")
             .form-group.col-md-12
                 label(for="name" class="form-label") Full Name

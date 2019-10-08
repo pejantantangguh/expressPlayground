@@ -24,11 +24,13 @@ router.get('/login', userController.userLogin);
 router.post('/login', userController.loginSubmitted);
 
 router.get('/register', userController.userRegister);
-router.post('/register',
-    userController.validateRegister,
-    userController.saveUser);
+// router.post('/register/add',
+//     userController.validateRegister,
+//     userController.saveUser);
 // Validate Registration
 // Register the user
 // Login the user
+
+router.post('/register/add', userController.testValidateRegister);
 
 module.exports = router;
