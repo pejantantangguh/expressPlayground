@@ -2,6 +2,7 @@ extends Layout
 block content
     .container
         h1 #{title}
+        pre #{errorsMessage}
         form.form(action="/register/add" method="POST")
             .form-group.col-md-12
                 label(for="Email" class="form-label") Email hehe
@@ -14,5 +15,5 @@ block content
                 input(name="password" class="form-control" type="password")
             .form-group.col-md-12
                 label(for="confirm-password" class="form-label") Confirm Password
-                input(name="confirm-password" class="form-control" type="confirm-password")
+                input(name="confirm-password" class="form-control" type="password")
             input.btn.btn-dark.btn-lg.mb-1(type="submit" value="Register ->")

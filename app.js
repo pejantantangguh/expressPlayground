@@ -1,13 +1,16 @@
 const createError = require('http-errors');
+const flash = require('express-flash');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const expressValidator = require('express-validator');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const h = require('./helper');
-const flash = require('flash');
+const passport = require('passport');
 const env = require('dotenv');
+
+
 
 
 env.config();
@@ -32,6 +35,16 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(expressValidator());
 app.use(cookieParser());
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -39,6 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // import Model module
 require('./models/Store');
 require('./models/User');
+require('./passport');
 
 // Routing
 const routing = require('./router')
